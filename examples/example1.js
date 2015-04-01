@@ -11,7 +11,7 @@ app.get('/:width/:height/:shutter', function (req, res) {
             height: req.params.height,
             shutter: req.params.shutter,
             nopreview: true,
-            timeout: 0
+            timeout: 1
         }, function (err, stream) {
             if (err) {
                 throw err;

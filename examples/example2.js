@@ -6,7 +6,7 @@ camera.getImageAsFile({
     width: 640,
     height: 480,
     nopreview: true,
-    timeout: 0,
+    timeout: 1,
     hflip: true,
     vflip: true
 }, './output.jpg', function (err) {
