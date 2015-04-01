@@ -43,7 +43,7 @@ Camera.prototype.getImageAsFile = function (options, filename, callback) {
 
         var args = opts.process(options);
 
-        var child = spawn('raspistill', args.concat(['-n', '-t', 1, '-o', '-']));
+        var child = spawn('raspistill', args.concat(['-o', '-']));
 
         var stream = new Stream();
 

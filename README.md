@@ -21,7 +21,7 @@ Option | Value
 **width, w** | Width
 **height, h** | Height
 **shutter, sh** | Shutter speed (>=0, <=6000000)
-**nopreview, n** | No preview
+**nopreview, n*** | No preview
 **opacity, op** | Opacity (>=0, <=255)
 **imxfx, ifx** | Image effect (none, negative, solarise, posterise, whiteboard, blackboard, sketch, denoise, emboss, oilpaint, hatch, gpen, pastel, watercolour, film, blur, saturation)
 **metering, mm** | Metering mode (average, spot, backlit, matrix)
@@ -30,7 +30,7 @@ Option | Value
 **hflip, hf** | Horizontal flip
 **vflip, vf*** | Vertical flip
 
-\*The **hflip** & **vflip** properties is type agnostic, but for readability the form `{ hflip: true }` should be used.
+\*The **nopreview**, **hflip** and **vflip** are enabled when present, but have no type. For readability the form `{ propertyname: true }` should be used.
 
 ## Examples
 
