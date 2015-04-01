@@ -14,6 +14,7 @@ $ npm install campi
 ```
 
 ## Usage
+The options object supports the following properties:
 
 Option | Value
 --- | ---
