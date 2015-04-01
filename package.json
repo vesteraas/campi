@@ -1,0 +1,25 @@
+{
+  "name": "campi",
+  "version": "0.0.1",
+  "description": "A NodeJS module for taking pictures with the Raspberry Pi camera module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "child_process",
+    "streams"
+  ],
+  "author": "Werner Vesteraas <wvesteraas@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vesteraas/picam"
+  },
+  "license": {
+    "type": "MIT",
+    "url": "http://opensource.org/licenses/MIT"
+  },
+  "dependencies": {
+    "underscore": "*"
+  }
+}
