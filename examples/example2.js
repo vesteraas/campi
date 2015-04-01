@@ -7,8 +7,9 @@ camera.getImageAsFile({
     height: 480,
     hflip: true,
     vflip: true
-}, './output.jpg', function (err, stream) {
+}, './output.jpg', function (err) {
     if (err) {
         throw err;
     }
+    console.log('Image captured');
 });
