@@ -14,12 +14,34 @@ $ npm install campi
 ```
 
 ## Usage
+
+```javascript
+var Campi = require('campi');
+
+var campi = new Campi();
+
+campi.getImageAsStream({ /* options */ }, function (err, stream) {
+    if (err) {
+        throw err;
+    }
+    // use stream object
+});
+
+campi.getImageAsFile({ /* options */ }, './filename.jpg', function (err) {
+    if (err) {
+        throw err;
+    }
+    // use file
+});
+```
+
 The options object supports the following properties:
 
 Option | Value
 --- | ---
 **width, w** | Width
 **height, h** | Height
+**encoding, e** | File encoding (jpg, bmp, gif, png)
 **shutter, sh** | Shutter speed (>=0, <=6000000)
 **nopreview, n*** | No preview
 **opacity, op** | Opacity (>=0, <=255)

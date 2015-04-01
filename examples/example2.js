@@ -1,8 +1,8 @@
-var Camera = require('../index');
+var Campi = require('../index');
 
-var camera = new Camera();
+var campi = new Campi();
 
-camera.getImageAsFile({
+campi.getImageAsFile({
     width: 640,
     height: 480,
     nopreview: true,

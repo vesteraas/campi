@@ -1,12 +1,12 @@
 var express = require('express'),
-    Camera = require('../index');
+    Campi = require('../index');
 
-var camera = new Camera();
+var campi = new Campi();
 
 var app = express();
 
 app.get('/:width/:height/:shutter', function (req, res) {
-        camera.getImageAsStream({
+        campi.getImageAsStream({
             width: req.params.width,
             height: req.params.height,
             shutter: req.params.shutter,
