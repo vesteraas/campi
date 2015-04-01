@@ -3,9 +3,10 @@ var Camera = require('../index');
 var camera = new Camera();
 
 camera.getImageAsFile({
-    width: req.params.width,
-    height: req.params.height,
-    shutter: req.params.shutter
+    width: 640,
+    height: 480,
+    hflip: true,
+    vflip: true
 }, './output.jpg', function (err, stream) {
     if (err) {
         throw err;

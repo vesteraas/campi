@@ -58,7 +58,6 @@ module.exports = function() {
                     result.push(option[1]);
                     result.push(options[i]);
                 } else if (option[0] === 'state') {
-                    console.log(option);
                     result.push(option[1]);
                 }
             }
