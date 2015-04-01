@@ -27,7 +27,7 @@ Option | Value
 **quality, q** | Quality (>=0, <=100)
 **timeout, t** | Timeout
 **hflip, hf** | Horizontal flip
-**vflip, vf\*** | Vertical flip
+**vflip, vf*** | Vertical flip
 
 \*The **hflip** & **vflip** properties is type agnostic, but for readability the form `{ hflip: true }` should be used.
 
