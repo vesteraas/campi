@@ -1,6 +1,6 @@
 var _ = require('underscore');
 
-var o = {
+var opts = {
     'w': ['numeric', '-w', ['>= 0']],
     'width': 'w',
     'h': ['numeric', '-h', ['>= 0']],
@@ -25,7 +25,7 @@ var o = {
     'hflip': 'hf',
     'vf': ['state', '-vf'],
     'vflip': 'vf'
-}
+};
 
 function isNumeric(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
@@ -37,7 +37,7 @@ module.exports = function() {
             var result = [];
 
             for (var i in options) {
-                var option = typeof o[i] !== 'object' ? o[o[i]] : o[i];
+                var option = typeof opts[i] !== 'object' ? opts[opts[i]] : opts[i];
 
                 if (option[0] === 'numeric') {
                     if (!isNumeric(options[i])) {
@@ -67,4 +67,4 @@ module.exports = function() {
             return result;
         }
     }
-}
+};

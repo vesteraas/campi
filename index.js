@@ -3,10 +3,24 @@ var spawn = require('child_process').spawn,
     fs = require('fs'),
     Options = require('./options');
 
-function Camera() {
-}
+function Camera() {}
 
 var opts = new Options();
+
+var raspistill = function(options) {
+    var args = opts.process(options);
+
+    var child = spawn('raspistill', args.concat(['-o',  '-']));
+
+    var stream = new Stream();
+
+    child.stderr.on('data', stream.emit.bind(stream, 'error'));
+    child.stdout.on('data', stream.emit.bind(stream, 'data'));
+    child.stdout.on('end', stream.emit.bind(stream, 'end'));
+    child.on('error', stream.emit.bind(stream, 'error'));
+
+    return stream;
+};
 
 Camera.prototype.getImageAsStream = function (options, callback) {
     try {
@@ -14,22 +28,11 @@ Camera.prototype.getImageAsStream = function (options, callback) {
             callback('Option property should be an object, or null');
         }
 
-        var args = opts.process(options);
-
-        var child = spawn('raspistill', args.concat(['-n', '-t', 1, '-o',  '-']));
-
-        var stream = new Stream();
-
-        child.stderr.on('data', stream.emit.bind(stream, 'error'));
-        child.stdout.on('data', stream.emit.bind(stream, 'data'));
-        child.stdout.on('end', stream.emit.bind(stream, 'end'));
-        child.on('error', stream.emit.bind(stream, 'error'));
-
-        callback(null, stream);
+        callback(null, raspistill(options));
     } catch (error) {
         callback(error);
     }
-}
+};
 
 Camera.prototype.getImageAsFile = function (options, filename, callback) {
     try {
@@ -41,25 +44,14 @@ Camera.prototype.getImageAsFile = function (options, filename, callback) {
             callback('filename property should be a string');
         }
 
-        var args = opts.process(options);
+        var stream = raspistill(options).pipe(fs.createWriteStream(filename));
 
-        var child = spawn('raspistill', args.concat(['-o', '-']));
-
-        var stream = new Stream();
-
-        child.stderr.on('data', stream.emit.bind(stream, 'error'));
-        child.stdout.on('data', stream.emit.bind(stream, 'data'));
-        child.stdout.on('end', stream.emit.bind(stream, 'end'));
-        child.on('error', stream.emit.bind(stream, 'error'));
-
-        var pipe = stream.pipe(fs.createWriteStream(filename));
-
-        pipe.on('finish', function() {
+        stream.on('finish', function() {
             callback(null);
         });
     } catch (error) {
         callback(error);
     }
-}
+};
 
 module.exports = Camera;
