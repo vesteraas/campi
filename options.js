@@ -21,14 +21,18 @@ var opts = {
     'quality': 'q',
     't': ['numeric', '-t', ['>= 0']],
     'timeout': 't',
-    'hf': ['state', '-hf'],
+    'hf': ['boolean', '-hf'],
     'hflip': 'hf',
-    'vf': ['state', '-vf'],
+    'vf': ['boolean', '-vf'],
     'vflip': 'vf'
 };
 
 function isNumeric(n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
+function isString(s) {
+    return (typeof s == 'string' || s instanceof String);
 }
 
 module.exports = function() {
@@ -50,17 +54,29 @@ module.exports = function() {
                         }
                     });
 
-                    result.push(option[1]);
-                    result.push(options[i]);
+                    if (result.indexOf(option[1]) === -1) {
+                        result.push(option[1]);
+                        result.push(options[i]);
+                    }
                 } else if (option[0] === 'choice') {
                     if (option[2].indexOf(options[i]) == -1) {
                         throw 'property \'' + i + '\' should be one of ' + option[2];
                     }
 
-                    result.push(option[1]);
-                    result.push(options[i]);
-                } else if (option[0] === 'state') {
-                    result.push(option[1]);
+                    if (result.indexOf(option[1]) === -1) {
+                        result.push(option[1]);
+                        result.push(options[i]);
+                    }
+                } else if (option[0] === 'boolean') {
+                    if ((isString(options[i]) && options[i].toLowerCase() === 'true') || options[i] === true) {
+                        if (result.indexOf(option[1]) === -1) {
+                            result.push(option[1]);
+                        }
+                    } else if ((isString(options[i]) && options[i].toLowerCase() === 'false')  || options[i] === false) {
+
+                    } else {
+                        throw 'property \'' + i + '\' should be true or false';
+                    }
                 }
             }
 

@@ -43,7 +43,7 @@ Option | Value
 **height, h** | Height
 **encoding, e** | File encoding (jpg, bmp, gif, png)
 **shutter, sh** | Shutter speed (>=0, <=6000000)
-**nopreview, n*** | No preview
+**nopreview, n*** | No preview (true / false)
 **opacity, op** | Opacity (>=0, <=255)
 **imxfx, ifx** | Image effect (none, negative, solarise, posterise, whiteboard, blackboard, sketch, denoise, emboss, oilpaint, hatch, gpen, pastel, watercolour, film, blur, saturation)
 **metering, mm** | Metering mode (average, spot, backlit, matrix)
