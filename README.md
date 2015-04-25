@@ -43,16 +43,14 @@ Option | Value
 **height, h** | Height
 **encoding, e** | File encoding (jpg, bmp, gif, png)
 **shutter, sh** | Shutter speed (>=0, <=6000000)
-**nopreview, n*** | No preview (true / false)
+**nopreview, n** | No preview (true / false)
 **opacity, op** | Opacity (>=0, <=255)
 **imxfx, ifx** | Image effect (none, negative, solarise, posterise, whiteboard, blackboard, sketch, denoise, emboss, oilpaint, hatch, gpen, pastel, watercolour, film, blur, saturation)
 **metering, mm** | Metering mode (average, spot, backlit, matrix)
 **quality, q** | Quality (>=0, <=100)
 **timeout, t** | Timeout
 **hflip, hf** | Horizontal flip
-**vflip, vf*** | Vertical flip
-
-\*The **nopreview**, **hflip** and **vflip** are enabled when present, but have no type. For readability the form `{ propertyname: true }` should be used.
+**vflip, vf** | Vertical flip
 
 ## Examples
 
