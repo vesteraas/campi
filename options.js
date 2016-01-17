@@ -24,7 +24,11 @@ var opts = {
     'hf': ['boolean', '-hf'],
     'hflip': 'hf',
     'vf': ['boolean', '-vf'],
-    'vflip': 'vf'
+    'vflip': 'vf',
+    'rot': ['numeric', '-rot'],
+    'rotation': 'rot',
+    'p': ['choice', '-p', ['0,0,1920,1080','0,0,1080,1920','0,608,1080,608']],
+    'preview': 'p'
 };
 
 function isNumeric(n) {
@@ -82,5 +86,5 @@ module.exports = function() {
 
             return result;
         }
-    }
+    };
 };
