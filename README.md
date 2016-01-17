@@ -52,7 +52,7 @@ Option | Value
 **hflip, hf** | Horizontal flip
 **vflip, vf** | Vertical flip
 **rotation, rot** | degrees the picture will be rotated - integer >0<360
-**preview, prev** | size and position of the preview while capturing. fullscreen horizontal, fullscreen vertica, middle screen vertical ('0,0,1920,1080','0,0,1080,1920','0,608,1080,608')
+**preview, prev** | size and position of the preview while capturing. fullscreen horizontal, fullscreen vertical, middle screen vertical ('0,0,1920,1080','0,0,1080,1920','0,608,1080,608')
 ## Examples
 
 See the [examples](https://github.com/vesteraas/campi/tree/master/examples) directory.
