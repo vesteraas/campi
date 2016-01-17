@@ -1,5 +1,5 @@
 {
-  "name": "@fwrsrl/campi2",
+  "name": "campi",
   "version": "0.0.5",
   "description": "A NodeJS module for taking pictures with the Raspberry Pi camera module",
   "main": "index.js",
